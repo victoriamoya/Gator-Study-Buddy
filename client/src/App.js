@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
@@ -10,11 +9,9 @@ function App() {
       .then((data) => setData(data.message));
   }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
-      </header>
+    <div>
+      <h1>Study Buddy</h1>
+      <h2>Login</h2>
     </div>
   );
 }
