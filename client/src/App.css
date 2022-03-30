@@ -14,7 +14,24 @@ h1 {
 h2{
   color: #131212;
   font-size: x-large;
-  text-decoration: underline;
-  text-decoration-color: #000000;
-  text-decoration-style: double;
+}
+.register button{
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #6c85a5;
+  color: rgb(255, 255, 255);
+  border: 1px solid #ffffff;
+  margin: 0 1rem;
+}
+.login button{
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #6c85a5;
+  color: rgb(255, 255, 255);
+  border: 1px solid #ffffff;
+  margin: 0 1rem;
 }
