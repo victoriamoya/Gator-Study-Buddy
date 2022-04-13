@@ -7,9 +7,9 @@ We created this to help students who are stuggling to make meaningful connection
 ## How to Download
 ```
 git clone https://github.com/victoriamoya/Gator-Study-Buddy.git
-cd Gator-Study-Buddy/backend backend folder
+cd Gator-Study-Buddy/backend
 npm install
-cd Gator-Study-Buddy/frontend backend folder
+cd Gator-Study-Buddy/frontend
 npm install
 ```
 ### Run frontend
