@@ -1,30 +1,23 @@
-# Goalsetter MERN app
+# Study Buddies
 
-This is the goalsetter app from the [Learn the MERN Stack](https://www.youtube.com/watch?v=-0exw-9YJBo) series on YouTube.
+This web application allows users to create an account and match with other users who have similar classes and interest and can join group chats with these people.
 
-## Usage
+We created this to help students who are stuggling to make meaningful connections in online learning enviornments.
 
-Rename the .envexample to .env and add your MONGO_URI
-
-### Install dependencies
-
+## How to Download
 ```
-# Backend deps
+git clone https://github.com/victoriamoya/Gator-Study-Buddy.git
+cd Gator-Study-Buddy/backend
 npm install
-
-# Frontend deps
-cd frontend
+cd Gator-Study-Buddy/frontend
 npm install
 ```
-
-### Run Server
-
+### Run frontend
 ```
-npm run server
+npm run client
 ```
-
-## Demo
-
-I am not sure how long this will be up
-
-https://mernappbrad.herokuapp.com/
+### Run backend
+```
+npm run devStart
+```
+To open both make sure to run both on two different terminals
