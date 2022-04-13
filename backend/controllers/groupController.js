@@ -6,8 +6,16 @@ const User = require('../models/userModel')
 // @route   GET /api/groups
 // @access  Private
 const getGroups = asyncHandler(async (req, res) => {
-  const groups = await Group.find({ user: req.user.id })
-  res.status(200).json(groups)
+  const radius = 5 // desired radius in miles
+  const userGroups = await Group.find({ user: req.user.id }) // user groups
+  const allGroups = await Group.find({}) // all groups
+  const nearbyGroups = await Group.find({"lastLocation": // groups in specified radius
+        {$geoWithin:
+              {$centerSphere: [req.user.coordinates, radius/3963.2]} // divide radius by the equatorial radius of the earth, 3963.2 miles, to get the correct radian.
+        }
+  })
+
+  res.status(200).json(nearbyGroups)
 })
 
 // @desc    Set group

@@ -6,7 +6,6 @@ function GroupItem({ group }) {
   return (
     <div className='group'>
       <h2>{group.text}</h2>
-        <h3>{['Latitude: ', group.latitude, ' Longitude: ', group.longitude]}</h3>
       <button onClick={() => dispatch(deleteGroup(group._id))} className='close'>
         X
       </button>

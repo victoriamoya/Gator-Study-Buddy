@@ -6,8 +6,6 @@ function GroupForm() {
   const [text, setText] = useState('')
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
-  const [lastLocation, setLastLocation] = useState([0, 0])
-
 
   navigator.geolocation.getCurrentPosition(
       function success(position) {
@@ -19,6 +17,7 @@ function GroupForm() {
         console.error('An error occurred while attempting to retrieve geolocation', error_message)
       }
   )
+
   const dispatch = useDispatch()
 
   const onSubmit = (e) => {

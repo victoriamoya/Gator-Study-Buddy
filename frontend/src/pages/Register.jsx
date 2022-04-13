@@ -6,6 +6,21 @@ import { register, reset } from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
 
 function Register() {
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
+  navigator.geolocation.getCurrentPosition(
+      function success(position) {
+        // location obtained
+        setLatitude(position.coords.latitude)
+        setLongitude(position.coords.longitude)
+      },
+      function error(error_message) {
+        console.error('An error occurred while attempting to retrieve geolocation', error_message)
+      }
+  )
+
+  let coordinates = [longitude, latitude]
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -51,6 +66,7 @@ function Register() {
         name,
         email,
         password,
+        coordinates,
       }
 
       dispatch(register(userData))

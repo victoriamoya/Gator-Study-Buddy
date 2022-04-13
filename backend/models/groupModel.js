@@ -21,15 +21,15 @@ const groupSchema = mongoose.Schema(
     },
     text: {
         type: String,
-        required: [true, 'Please add a text value'],
+        required: true,
     },
     latitude: {
         type: Number,
-        required: [true]
+        required: true
     },
     longitude: {
         type: Number,
-        required: [true]
+        required: true
     },
     lastLocation: {
         type: pointSchema,
