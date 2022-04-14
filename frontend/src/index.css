@@ -28,8 +28,15 @@ li {
   line-height: 2.2;
 }
 
-h1,
-h2,
+h1 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+h2 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  background-color: #f4f4f4;
+}
 h3 {
   font-weight: 600;
   margin-bottom: 10px;
