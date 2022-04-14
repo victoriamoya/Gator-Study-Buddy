@@ -58,9 +58,9 @@ function Login() {
     <>
       <section className='heading'>
         <h1>
-          StudyBuddies
+          Login
         </h1>
-        <p>Sign in!</p>
+       
       </section>
 
       <section className='form'>

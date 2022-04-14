@@ -81,9 +81,9 @@ function Register() {
     <>
       <section className='heading'>
         <h1>
-          StudyBuddies
+          Create Account
         </h1>
-        <p>Start forming new groups.</p>
+       
       </section>
 
       <section className='form'>
