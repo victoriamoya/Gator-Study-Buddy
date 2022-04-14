@@ -1,8 +1,8 @@
 # Study Buddies
 
-This web application allows users to create an account and match with other users who have similar classes and interest and can join group chats with these people.
+This web application allows users to create an account and match with other users who have similar classes and interests and can join group chats with these people.
 
-We created this to help students who are stuggling to make meaningful connections in online learning enviornments.
+We created this to help students who are struggling to make meaningful connections in online learning environments.
 
 ## How to Download
 ```
