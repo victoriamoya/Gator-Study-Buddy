@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createGroup } from '../features/groups/groupSlice'
+import { useSelector } from 'react-redux'
 
 function GroupForm() {
   const [text, setText] = useState('')
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
-
+  
   navigator.geolocation.getCurrentPosition(
       function success(position) {
         // location obtained
@@ -22,7 +23,7 @@ function GroupForm() {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    dispatch(createGroup({ text, latitude, longitude }))
+    dispatch(createGroup({ text, latitude, longitude}))
     setText('')
   }
 

@@ -19,6 +19,10 @@ const groupSchema = mongoose.Schema(
         required: true,
         ref: 'User',
     },
+    name: {
+        type: String,
+        required: true,
+    },
     text: {
         type: String,
         required: true,
