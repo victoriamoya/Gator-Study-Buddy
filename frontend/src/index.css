@@ -34,9 +34,10 @@ h1 {
 }
 
 h2 { 
+  position: relative;
   font-weight: 600;
-  margin-bottom: 10px;
-  color: #040404
+  color: #040404;
+  margin-left: 70px;
 }
 h3 {
   font-weight: 600;
@@ -47,8 +48,8 @@ h4 {
 }
 h5 {
   position: relative;
-  top: 20px;
   font-weight: 500;
+  top: 20px
 }
 
 

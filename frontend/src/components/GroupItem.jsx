@@ -10,15 +10,18 @@ function GroupItem({ group }) {
   let navigate = useNavigate();
   const { user } = useSelector((state) => state.auth)
 const routeChange = () =>{
-  navigate('/groups');
+  navigate('/group');
 }
   return (
     <div className='group'>
       <button className='classbtn' onClick={routeChange}>
         <h2>
             {group.text}
-            {group.name}
         </h2>
+      
+        <h5>
+          Made by: {group.name}
+        </h5>
       </button>
       <button onClick={() => dispatch(deleteGroup(group._id))} className='close'>
         <img src={trash} height={10} width={10}></img>
