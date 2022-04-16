@@ -171,15 +171,24 @@ h7{
   border-radius: 100px;
 }
 .chats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  display:-ms-grid;
+  grid-column-start: 2;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 190;
+  border-radius: 5px;
 }
 
 .chat {
-  margin: 10px 0;
-  padding: 10px 0 10px;
-  position: relative;
+
+  list-style: none;
+  background: none;
+  margin: 0;
+  padding: 0 0 50px 0;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  max-height: 300px;
+  width: 200px;
 }
 .chat .classbtn {
   width: 100%;
@@ -198,10 +207,7 @@ h7{
   align-items: center;
   justify-content: center;
 }
-.chat .classbtn:hover {
-    background-color: rgb(253, 207, 121);
-    border-color:rgb(253, 207, 121);
-}
+
 .chat .close {
   position: absolute;
   top: 23px;
