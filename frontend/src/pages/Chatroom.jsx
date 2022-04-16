@@ -1,18 +1,18 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import GroupForm from '../components/GroupForm'
-import GroupItem from '../components/GroupItem'
 import Spinner from '../components/Spinner'
-import { getGroups, reset } from '../features/groups/groupSlice'
+import { getChats, reset } from '../features/chats/chatSlice'
+import ChatForm from '../components/ChatForm'
+import ChatItem from '../components/ChatItem'
 
 function Chatroom() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  const { groups, isLoading, isError, message } = useSelector(
-    (state) => state.groups
+  const { chats, isLoading, isError, message } = useSelector(
+    (state) => state.chats
   )
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function Chatroom() {
       navigate('/login')
     }
 
-    dispatch(getGroups())
+    dispatch(getChats())
 
     return () => {
       dispatch(reset())
@@ -37,23 +37,24 @@ function Chatroom() {
 
   return (
     <>
+
       <section className='heading'>
         <h1>Begin Chatting!</h1>
       </section>
 
-      <GroupForm/>
-
       <section className='content'>
-        {groups.length > 0 ? (
-          <div className='groups'>
-            {groups.map((group) => (
-              <GroupItem key={group._id} group={group}/>
+        {chats.length > 0 ? (
+          <div className='chats'>
+            {chats.map((chat) => (
+              <ChatItem key={chat._id} chat={chat}/>
             ))}
           </div>
         ) : (
-          <h3>You haven't created any groups yet!</h3>
+          <h3>No messages yet!</h3>
         )}
       </section>
+      
+      <ChatForm/>
     </>
   )
 }
