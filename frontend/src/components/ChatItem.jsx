@@ -14,7 +14,7 @@ const routeChange = () =>{
 }
   return (
     <div className='chat'>
-        <button className='classbtn' onClick={routeChange}>
+        <button className='message'>
         <h6>
             {chat.text}
         </h6>
@@ -22,7 +22,7 @@ const routeChange = () =>{
       <h7>
           {chat.name}
         </h7>
-        <button onClick={() => dispatch(deleteChat(chat._id))} className='close'>
+        <button onClick={() => dispatch(deleteChat(chat._id))} className='delete'>
         <img src={trash} height={10} width={10}></img>
       </button>
     </div>

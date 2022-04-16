@@ -20,7 +20,7 @@ const routeChange = () =>{
         </h2>
       
         <h5>
-          Made by: {group.name}
+          Made by: <h8>{group.name}</h8>
         </h5>
       </button>
       <button onClick={() => dispatch(deleteGroup(group._id))} className='close'>

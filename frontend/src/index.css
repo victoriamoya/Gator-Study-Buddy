@@ -34,10 +34,8 @@ h1 {
 }
 
 h2 { 
-  position: relative;
-  font-weight: 600;
+  text-transform: capitalize;
   color: #040404;
-  margin-left: 70px;
 }
 h3 {
   font-weight: 600;
@@ -47,21 +45,29 @@ h4 {
   font-weight: 600;
 }
 h5 {
-  position: relative;
   font-weight: 500;
-  top: 20px
+  top: 100px;
 }
 h6{
   position: relative;
-  font-weight: 600;
-  color: #040404;
-  font-size: x-large;
+  left: 30px;
+  top: 2px;
+  text-align: left;
+  font-weight: 500;
+  color:rgb(8, 8, 8);
+  font-size: large;
 }
 h7{
   position: relative;
-  font-weight: 500;
-  top: 5px;
-  right: 80px;
+  font-weight: 620;
+  font-size: 11px;
+  top: -41px;
+  left: 20px;
+  color:rgb(31, 64, 252);
+  text-transform: capitalize;
+}
+h8{
+  text-transform: capitalize;
 }
 
 
@@ -121,7 +127,6 @@ h7{
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
-
 .group {
   margin: 10px 0;
   padding: 10px 0 10px;
@@ -138,11 +143,10 @@ h7{
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  text-align: center;
   appearance: button;
-  display: flex;
-  align-items: center;
+  display: inline-block;
   justify-content: center;
+  align-items: center;
 }
   .group .classbtn:hover {
     background-color: rgb(253, 207, 121);
@@ -170,71 +174,66 @@ h7{
   border: 1px solid rgb(189, 188, 188);
   border-radius: 100px;
 }
-.chats {
-  display:-ms-grid;
-  grid-column-start: 2;
-  grid-column-end: 9;
-  grid-row-start: 1;
-  grid-row-end: 190;
-  border-radius: 5px;
-}
 
-.chat {
 
-  list-style: none;
-  background: none;
-  margin: 0;
-  padding: 0 0 50px 0;
-  margin-top: 60px;
-  margin-bottom: 10px;
-  max-height: 300px;
-  width: 200px;
-}
-.chat .classbtn {
-  width: 100%;
-  margin: 0px;
-  padding: 25px 15px; 
-  border: 1px solid #f4f4f4;
-  border-radius: 70px;
-  background: #f4f4f4;
-  color: rgb(8, 8, 8);
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-  appearance: button;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.chat .close {
-  position: absolute;
-  top: 23px;
-  right: 20px;
-  cursor: pointer;
-  color: #f4f4f4;
-  background-color: #f4f4f4;
-  padding: 2.5px 5px;
-  border: 1px solid #f4f4f4;
-  border-radius: 100px;
-}
-.chat .close:hover {
-  position: absolute;
-  top: 23px;
-  right: 20px;
-  cursor: pointer;
-  color: #f4f4f4;
-  background-color: rgb(189, 188, 188);
-  padding: 2.5px 5px;
-  border: 1px solid rgb(189, 188, 188);
-  border-radius: 100px;
-}
 .form,
 .content {
   width: 70%;
   margin: 0 auto;
+  
 }
+.chats {
+  
+}
+.chat {
+  list-style: none;
+  background: none;
+  max-height: 300px;
+  margin: 70px 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.chat .message {
+  position: absolute;
+  bottom: 0;
+  width: 60%;
+  padding: 20px 5px; 
+  border: 1px solid #f4f4f4;
+  border-radius: 70px;
+  background: #f4f4f4;
+  color: rgb(8, 8, 8);
+  appearance: button;
+  display: inline-block;
+}
+
+.chat .delete {
+  position: absolute;
+  top: -15px;
+  left: 355px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  padding: 2.5px 5px;
+  border: 1px rgb(253, 207, 121, 0.8);
+  color:rgb(253, 207, 121, 0.8);
+  background-color:rgba(253, 207, 121, 0.8);
+  border-radius: 100px;
+}
+.chat .delete:hover {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -45px;
+  left: 382px;
+  cursor: pointer;
+  color: #e7e4e4;
+  background-color: #e7e4e4;
+  padding: 2.5px 5px;
+  border: 1px #e7e4e4;
+  border-radius: 100px;
+}
+
 
 .form-group {
   margin-bottom: 10px;
@@ -277,6 +276,8 @@ h7{
   display: block;
   margin: 0 0 5px 3px;
 }
+
+
 .btn {
   padding: 10px 20px;
   border: 1px solid rgb(31, 64, 252);
@@ -292,23 +293,17 @@ h7{
   align-items: center;
   justify-content: center;
 }
-
 .btn svg {
   margin-right: 8px;
 }
-
 .btn-reverse {
   background: #fff;
   color: #000;
 }
-
 .btn-block {
   width: 100%;
   margin-bottom: 20px;
 }
-
-
-
 .btn:hover {
   transform: scale(0.98);
   background-color: rgb(253, 207, 121);
