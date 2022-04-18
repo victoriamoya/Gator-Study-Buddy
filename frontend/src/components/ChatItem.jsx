@@ -10,13 +10,13 @@ function ChatItem({ chat }) {
   let navigate = useNavigate();
   const { user } = useSelector((state) => state.auth)
 const routeChange = () =>{
-  navigate('/');
+  navigate('/login');
 }
   return (
     <div className='chat'>
         <button className='message'>
         
-            {chat.text}
+          {chat.text}
       
         <h6>
           {chat.name}
