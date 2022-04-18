@@ -49,20 +49,9 @@ h5 {
   top: 100px;
 }
 h6{
-  position: relative;
-  left: 30px;
-  top: 2px;
-  text-align: left;
-  font-weight: 500;
-  color:rgb(8, 8, 8);
-  font-size: large;
-}
-h7{
-  position: relative;
   font-weight: 620;
   font-size: 11px;
-  top: -41px;
-  left: 20px;
+  top: -45px;
   color:rgb(31, 64, 252);
   text-transform: capitalize;
 }
@@ -180,35 +169,36 @@ h8{
 .content {
   width: 70%;
   margin: 0 auto;
-  
+  justify-content: space-evenly;
 }
-
 .chat {
-  list-style: none;
-  background: none;
-  max-height: 300px;
-  margin: 70px 0;
+  max-height: 100px;
+  margin: 100px 0;
   position: relative;
   display: flex;
-  justify-content: space-between;
 }
 .chat .message {
   position: absolute;
-  bottom: 0;
-  width: 60%;
-  padding: 20px 5px; 
-  border: 1px solid #f4f4f4;
-  border-radius: 70px;
+  bottom: -10px;
+  width: fit-content;
+  padding: 15px 30px 15px 20px; 
+  border: 0px solid #f4f4f4;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 14px;
+  border-radius: 80px;
   background: #f4f4f4;
   color: rgb(8, 8, 8);
   appearance: button;
   display: inline-block;
+  text-align: left;
+  clear: both;
 }
 
 .chat .delete {
   position: absolute;
-  top: -15px;
-  left: 355px;
+  top: -20px;
+  left: -1px;
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -222,8 +212,8 @@ h8{
   position: absolute;
   width: 20px;
   height: 20px;
-  top: -15px;
-  left: 355px;
+  top: -20px;
+  left: -1px;
   cursor: pointer;
   color: #e7e4e4;
   background-color: #e7e4e4;
