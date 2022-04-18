@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createGroup } from '../features/groups/groupSlice'
+import { useSelector } from 'react-redux'
 
 function GroupForm() {
   const [text, setText] = useState('')
@@ -22,30 +23,30 @@ function GroupForm() {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    dispatch(createGroup({ text, latitude, longitude }))
+    dispatch(createGroup({ text, latitude, longitude}))
     setText('')
   }
 
   return (
-    <section className='form'>
-      <form onSubmit={onSubmit}>
-        <div className='form-group'>
-          <label htmlFor='text'>Group Name</label>
-          <input
-            type='text'
-            name='text'
-            id='text'
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-        </div>
-        <div className='form-group'>
-          <button className='btn btn-block' type='submit'>
-            Create new group
-          </button>
-        </div>
-      </form>
-    </section>
+      <section className='form'>
+        <form onSubmit={onSubmit}>
+          <div className='form-group'>
+            <label htmlFor='text'>Group Name</label>
+            <input
+                type='text'
+                name='text'
+                id='text'
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+            />
+          </div>
+          <div className='form-group'>
+            <button className='btn btn-block' type='submit'>
+              Create new group
+            </button>
+          </div>
+        </form>
+      </section>
   )
 }
 

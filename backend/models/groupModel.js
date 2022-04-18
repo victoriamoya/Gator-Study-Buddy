@@ -13,35 +13,39 @@ const pointSchema = mongoose.Schema({ // for mongodb geospatial queries
 });
 
 const groupSchema = mongoose.Schema(
-{
-    user: { // group owner
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User',
-    },
-    text: {
-        type: String,
-        required: true,
-    },
-    latitude: {
-        type: Number,
-        required: true
-    },
-    longitude: {
-        type: Number,
-        required: true
-    },
-    lastLocation: {
-        type: pointSchema,
-        default: {
-            type: "Point",
-            coordinates: [0, 0], // longitude [-180, 180], latitude [-90, 90]
+    {
+        user: { // group owner
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'User',
         },
-        index: "2dsphere",
+        name: {
+            type: String,
+            required: true,
+        },
+        text: {
+            type: String,
+            required: true,
+        },
+        latitude: {
+            type: Number,
+            required: true
+        },
+        longitude: {
+            type: Number,
+            required: true
+        },
+        lastLocation: {
+            type: pointSchema,
+            default: {
+                type: "Point",
+                coordinates: [0, 0], // longitude [-180, 180], latitude [-90, 90]
+            },
+            index: "2dsphere",
+        },
     },
-},
-{
-    timestamps: true,
-});
+    {
+        timestamps: true,
+    });
 
 module.exports = mongoose.model('Group', groupSchema)

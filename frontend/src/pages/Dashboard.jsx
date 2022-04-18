@@ -12,7 +12,7 @@ function Dashboard() {
 
   const { user } = useSelector((state) => state.auth)
   const { groups, isLoading, isError, message } = useSelector(
-    (state) => state.groups
+      (state) => state.groups
   )
 
   useEffect(() => {
@@ -36,26 +36,26 @@ function Dashboard() {
   }
 
   return (
-    <>
-      <section className='heading'>
-        <h1>Welcome {user && user.name}</h1>
-        <p>Groups Dashboard</p>
-      </section>
+      <>
+        <section className='heading'>
+          <h1>Welcome {user.name}</h1>
+          <p>Groups Dashboard</p>
+        </section>
 
-      <GroupForm/>
+        <GroupForm/>
 
-      <section className='content'>
-        {groups.length > 0 ? (
-          <div className='groups'>
-            {groups.map((group) => (
-              <GroupItem key={group._id} group={group}/>
-            ))}
-          </div>
-        ) : (
-          <h3>You haven't created any groups yet!</h3>
-        )}
-      </section>
-    </>
+        <section className='content'>
+          {groups.length > 0 ? (
+              <div className='groups'>
+                {groups.map((group) => (
+                    <GroupItem key={group._id} group={group}/>
+                ))}
+              </div>
+          ) : (
+              <h3>You haven't created any groups yet!</h3>
+          )}
+        </section>
+      </>
   )
 }
 

@@ -1,14 +1,13 @@
 const asyncHandler = require('express-async-handler')
 const Group = require('../models/groupModel')
 const User = require('../models/userModel')
+const mongoose = require("mongoose");
 
 // @desc    Get groups
 // @route   GET /api/groups
 // @access  Private
 const getGroups = asyncHandler(async (req, res) => {
   const radius = 5 // desired radius in miles
-  const userGroups = await Group.find({ user: req.user.id }) // user groups
-  const allGroups = await Group.find({}) // all groups
   const nearbyGroups = await Group.find({"lastLocation": // groups in specified radius
         {$geoWithin:
               {$centerSphere: [req.user.coordinates, radius/3963.2]} // divide radius by the equatorial radius of the earth, 3963.2 miles, to get the correct radian.
@@ -30,6 +29,7 @@ const setGroup = asyncHandler(async (req, res) => {
   const group = await Group.create({
     "text": req.body.text,
     "user": req.user.id,
+    "name": req.user.name,
     "latitude": req.body.latitude,
     "longitude": req.body.longitude,
     "lastLocation": {
@@ -59,14 +59,12 @@ const updateGroup = asyncHandler(async (req, res) => {
     throw new Error('User not found')
   }
 
-  // Make sure the logged in user matches the group user
-  if (group.user.toString() !== req.user.id) {
-    res.status(401)
-    throw new Error('User not authorized')
-  }
-
   const updatedGroup = await Group.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
+    messages: {
+      groupId: req.params.id,
+      text: req.body.message,
+      sender: req.user.name,
+    }
   })
 
   res.status(200).json(updatedGroup)
