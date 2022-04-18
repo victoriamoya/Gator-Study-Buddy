@@ -7,83 +7,56 @@ import ChatForm from '../components/ChatForm'
 import ChatItem from '../components/ChatItem'
 
 function Chatroom() {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
-  const { user } = useSelector((state) => state.auth)
-  const { chats, isLoading, isError, message } = useSelector(
-<<<<<<< HEAD
-      (state) => state.chats
-=======
-    (state) => state.chats
->>>>>>> 5f468920e8bcd3251105192e60953e22e57fd061
-  )
+    const { user } = useSelector((state) => state.auth)
+    const { chats, isLoading, isError, message } = useSelector(
+        (state) => state.chats
+    )
 
-  useEffect(() => {
-    if (isError) {
-      console.log(message)
+    useEffect(() => {
+        if (isError) {
+            console.log(message)
+        }
+
+        if (!user) {
+            navigate('/login')
+        }
+
+        dispatch(getChats())
+
+        return () => {
+            dispatch(reset())
+        }
+    }, [user, navigate, isError, message, dispatch])
+
+    if (isLoading) {
+        return <Spinner />
     }
 
-    if (!user) {
-      navigate('/login')
-    }
+    return (
+        <>
 
-    dispatch(getChats())
+            <section className='heading'>
+                <h1>Begin Chatting!</h1>
+            </section>
 
-    return () => {
-      dispatch(reset())
-    }
-  }, [user, navigate, isError, message, dispatch])
+            <section className='content'>
+                {chats.length > 0 ? (
+                    <div className='chats'>
+                        {chats.map((chat) => (
+                            <ChatItem key={chat._id} chat={chat}/>
+                        ))}
+                    </div>
+                ) : (
+                    <h3>No messages yet!</h3>
+                )}
+            </section>
 
-  if (isLoading) {
-    return <Spinner />
-  }
-
-  return (
-<<<<<<< HEAD
-      <>
-
-        <section className='heading'>
-          <h1>Begin Chatting!</h1>
-        </section>
-
-        <section className='content'>
-          {chats.length > 0 ? (
-              <div className='chats'>
-                {chats.map((chat) => (
-                    <ChatItem key={chat._id} chat={chat}/>
-                ))}
-              </div>
-          ) : (
-              <h3>No messages yet!</h3>
-          )}
-        </section>
-
-        <ChatForm/>
-      </>
-=======
-    <>
-
-      <section className='heading'>
-        <h1>Begin Chatting!</h1>
-      </section>
-
-      <section className='content'>
-        {chats.length > 0 ? (
-          <div className='chats'>
-            {chats.map((chat) => (
-              <ChatItem key={chat._id} chat={chat}/>
-            ))}
-          </div>
-        ) : (
-          <h3>No messages yet!</h3>
-        )}
-      </section>
-      
-      <ChatForm/>
-    </>
->>>>>>> 5f468920e8bcd3251105192e60953e22e57fd061
-  )
+            <ChatForm/>
+        </>
+    )
 }
 
 export default Chatroom
