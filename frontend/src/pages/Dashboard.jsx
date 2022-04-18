@@ -36,6 +36,7 @@ function Dashboard() {
   }
 
   return (
+<<<<<<< HEAD
       <>
         <section className='heading'>
           <h1>Welcome {user.name}</h1>
@@ -56,6 +57,28 @@ function Dashboard() {
           )}
         </section>
       </>
+=======
+    <>
+      <section className='heading'>
+        <h1>Welcome {user.name}</h1>
+        <p>Groups Dashboard</p>
+      </section>
+
+      <GroupForm/>
+
+      <section className='content'>
+        {groups.length > 0 ? (
+          <div className='groups'>
+            {groups.map((group) => (
+              <GroupItem key={group._id} group={group}/>
+            ))}
+          </div>
+        ) : (
+          <h3>You haven't created any groups yet!</h3>
+        )}
+      </section>
+    </>
+>>>>>>> 5f468920e8bcd3251105192e60953e22e57fd061
   )
 }
 

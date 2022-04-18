@@ -9,47 +9,47 @@ function ChatForm() {
     const [longitude, setLongitude] = useState(0)
     const [groupID, setGroupID] = useState(0)
     const [sender, setSender] = useState('')
-  
-  navigator.geolocation.getCurrentPosition(
-      function success(position) {
-        // location obtained
-        setLatitude(position.coords.latitude)
-        setLongitude(position.coords.longitude)
-      },
-      function error(error_message) {
-        console.error('An error occurred while attempting to retrieve geolocation', error_message)
-      }
-  )
 
-  const dispatch = useDispatch()
+    navigator.geolocation.getCurrentPosition(
+        function success(position) {
+            // location obtained
+            setLatitude(position.coords.latitude)
+            setLongitude(position.coords.longitude)
+        },
+        function error(error_message) {
+            console.error('An error occurred while attempting to retrieve geolocation', error_message)
+        }
+    )
 
-  const onSubmit = (e) => {
-    dispatch(createChat({ text, latitude, longitude}))
-    e.preventDefault()
-    setText('')
-  }
+    const dispatch = useDispatch()
 
-  return (
-    <section className='form'>
-      <form onSubmit={onSubmit}>
-        <div className='form-chat'>
-          <label htmlFor='text'>Enter Message Here:</label>
-          <input
-            type='text'
-            name='text'
-            id='text'
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-        </div>
-        <div className='form-chat'>
-          <button className='btn btn-block' type='submit'>
-            Send
-          </button>
-        </div>
-      </form>
-    </section>
-  )    
+    const onSubmit = (e) => {
+        dispatch(createChat({ text, latitude, longitude}))
+        e.preventDefault()
+        setText('')
+    }
+
+    return (
+        <section className='form'>
+            <form onSubmit={onSubmit}>
+                <div className='form-chat'>
+                    <label htmlFor='text'>Enter Message Here:</label>
+                    <input
+                        type='text'
+                        name='text'
+                        id='text'
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                    />
+                </div>
+                <div className='form-chat'>
+                    <button className='btn btn-block' type='submit'>
+                        Send
+                    </button>
+                </div>
+            </form>
+        </section>
+    )
 }
 
 export default ChatForm

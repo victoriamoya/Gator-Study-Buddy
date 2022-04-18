@@ -7,7 +7,7 @@ function GroupForm() {
   const [text, setText] = useState('')
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
-
+  
   navigator.geolocation.getCurrentPosition(
       function success(position) {
         // location obtained

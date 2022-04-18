@@ -9,7 +9,11 @@ const initialState = {
   message: '',
 }
 
+<<<<<<< HEAD
 // Create new chat
+=======
+// Create new group
+>>>>>>> 5f468920e8bcd3251105192e60953e22e57fd061
 export const createChat = createAsyncThunk(
   'chats/create',
   async (chatData, thunkAPI) => {
@@ -28,7 +32,11 @@ export const createChat = createAsyncThunk(
   }
 )
 
+<<<<<<< HEAD
 // Get user chats
+=======
+// Get user groups
+>>>>>>> 5f468920e8bcd3251105192e60953e22e57fd061
 export const getChats = createAsyncThunk(
   'chats/getAll',
   async (_, thunkAPI) => {
@@ -47,7 +55,11 @@ export const getChats = createAsyncThunk(
   }
 )
 
+<<<<<<< HEAD
 // Delete user chat
+=======
+// Delete user group
+>>>>>>> 5f468920e8bcd3251105192e60953e22e57fd061
 export const deleteChat = createAsyncThunk(
   'chats/delete',
   async (id, thunkAPI) => {

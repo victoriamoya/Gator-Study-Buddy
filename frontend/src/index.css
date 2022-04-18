@@ -34,9 +34,8 @@ h1 {
 }
 
 h2 { 
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #040404
+  text-transform: capitalize;
+  color: #040404;
 }
 h3 {
   font-weight: 600;
@@ -47,6 +46,17 @@ h4 {
 }
 h5 {
   font-weight: 500;
+  top: 100px;
+}
+h6{
+  font-weight: 620;
+  font-size: 11px;
+  top: -45px;
+  color:rgb(31, 64, 252);
+  text-transform: capitalize;
+}
+h8{
+  text-transform: capitalize;
 }
 
 
@@ -106,7 +116,6 @@ h5 {
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
-
 .group {
   margin: 10px 0;
   padding: 10px 0 10px;
@@ -123,11 +132,10 @@ h5 {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  text-align: center;
   appearance: button;
-  display: flex;
-  align-items: center;
+  display: inline-block;
   justify-content: center;
+  align-items: center;
 }
   .group .classbtn:hover {
     background-color: rgb(253, 207, 121);
@@ -156,11 +164,64 @@ h5 {
   border-radius: 100px;
 }
 
+
 .form,
 .content {
   width: 70%;
   margin: 0 auto;
+  justify-content: space-evenly;
 }
+.chat {
+  max-height: 100px;
+  margin: 100px 0;
+  position: relative;
+  display: flex;
+}
+.chat .message {
+  position: absolute;
+  bottom: -10px;
+  width: fit-content;
+  padding: 15px 30px 15px 20px; 
+  border: 0px solid #f4f4f4;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 14px;
+  border-radius: 80px;
+  background: #f4f4f4;
+  color: rgb(8, 8, 8);
+  appearance: button;
+  display: inline-block;
+  text-align: left;
+  clear: both;
+}
+
+.chat .delete {
+  position: absolute;
+  top: -20px;
+  left: -1px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  padding: 2.5px 5px;
+  border: 1px rgb(253, 207, 121, 0.8);
+  color:rgb(253, 207, 121, 0.8);
+  background-color:rgba(253, 207, 121, 0.8);
+  border-radius: 100px;
+}
+.chat .delete:hover {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -20px;
+  left: -1px;
+  cursor: pointer;
+  color: #e7e4e4;
+  background-color: #e7e4e4;
+  padding: 2.5px 5px;
+  border: 1px #e7e4e4;
+  border-radius: 100px;
+}
+
 
 .form-group {
   margin-bottom: 10px;
@@ -183,6 +244,28 @@ h5 {
   margin: 0 0 5px 3px;
 }
 
+.form-chat {
+  margin-bottom: 10px;
+}
+
+.form-chat input,
+.form-chat textarea,
+.form-chat select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.form-chat label {
+  text-align: left;
+  display: block;
+  margin: 0 0 5px 3px;
+}
+
+
 .btn {
   padding: 10px 20px;
   border: 1px solid rgb(31, 64, 252);
@@ -198,23 +281,17 @@ h5 {
   align-items: center;
   justify-content: center;
 }
-
 .btn svg {
   margin-right: 8px;
 }
-
 .btn-reverse {
   background: #fff;
   color: #000;
 }
-
 .btn-block {
   width: 100%;
   margin-bottom: 20px;
 }
-
-
-
 .btn:hover {
   transform: scale(0.98);
   background-color: rgb(253, 207, 121);

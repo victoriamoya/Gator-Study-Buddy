@@ -13,40 +13,40 @@ const pointSchema = mongoose.Schema({ // for mongodb geospatial queries
 });
 
 const chatSchema = mongoose.Schema(
-{
-    user: { 
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User',
-    },
-    name: {
-        type: String,
-        required: true,
-    },
-    text: {
-        type: String,
-        required: true,
-    },
-    latitude: {
-        type: Number,
-        required: true
-    },
-    longitude: {
-        type: Number,
-        required: true
-    },
-    lastLocation: {
-        type: pointSchema,
-        default: {
-            type: "Point",
-            coordinates: [0, 0], // longitude [-180, 180], latitude [-90, 90]
+    {
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'User',
         },
-        index: "2dsphere",
+        name: {
+            type: String,
+            required: true,
+        },
+        text: {
+            type: String,
+            required: true,
+        },
+        latitude: {
+            type: Number,
+            required: true
+        },
+        longitude: {
+            type: Number,
+            required: true
+        },
+        lastLocation: {
+            type: pointSchema,
+            default: {
+                type: "Point",
+                coordinates: [0, 0], // longitude [-180, 180], latitude [-90, 90]
+            },
+            index: "2dsphere",
+        },
+        groupId: ""
     },
-    groupId: ""
-},
-{
-    timestamps: true,
-});
+    {
+        timestamps: true,
+    });
 
 module.exports = mongoose.model('Chat', chatSchema)
