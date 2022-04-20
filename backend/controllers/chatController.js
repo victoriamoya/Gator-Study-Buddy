@@ -10,7 +10,8 @@ const getChats = asyncHandler(async (req, res) => {
             }
     })
 
-    const groupChats = await Chat.find({"group": req.group})
+    // supposed to get all group chats with specified group id, but they disappear upon page refresh
+    // const groupChats = await Chat.find({group: req.group})
 
     res.status(200).json(nearbyChats)
 })
