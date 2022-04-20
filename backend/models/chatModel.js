@@ -19,6 +19,11 @@ const chatSchema = mongoose.Schema(
             required: true,
             ref: 'User',
         },
+        group: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'Group'
+        },
         name: {
             type: String,
             required: true,
@@ -43,7 +48,6 @@ const chatSchema = mongoose.Schema(
             },
             index: "2dsphere",
         },
-        groupId: ""
     },
     {
         timestamps: true,

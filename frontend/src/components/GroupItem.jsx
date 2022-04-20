@@ -10,7 +10,8 @@ function GroupItem({ group }) {
     let navigate = useNavigate();
     const { user } = useSelector((state) => state.auth)
     const routeChange = () =>{
-        navigate('/group');
+        localStorage.setItem("group", group._id);
+        navigate('/group')
     }
     return (
         <div className='group'>

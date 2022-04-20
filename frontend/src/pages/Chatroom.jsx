@@ -9,7 +9,6 @@ import ChatItem from '../components/ChatItem'
 function Chatroom() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
     const { user } = useSelector((state) => state.auth)
     const { chats, isLoading, isError, message } = useSelector(
         (state) => state.chats

@@ -41,24 +41,9 @@ const deleteChat = async (chatId, token) => {
     return response.data
 }
 
-// Update chat
-const updateChat = async (chatId, chatData, token) => {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`,
-            groupId: chatData,
-        },
-    }
-
-    const response = await axios.put(API_URL + chatId, config)
-
-    return response.data
-}
-
 const chatService = {
     createChat,
     getChats,
-    updateChat,
     deleteChat,
 }
 

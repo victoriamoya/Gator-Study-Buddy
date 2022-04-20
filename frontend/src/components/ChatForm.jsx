@@ -7,8 +7,7 @@ function ChatForm() {
     const [text, setText] = useState('')
     const [latitude, setLatitude] = useState(0)
     const [longitude, setLongitude] = useState(0)
-    const [groupID, setGroupID] = useState(0)
-    const [sender, setSender] = useState('')
+    var group = localStorage.getItem('group');
 
     navigator.geolocation.getCurrentPosition(
         function success(position) {
@@ -24,7 +23,7 @@ function ChatForm() {
     const dispatch = useDispatch()
 
     const onSubmit = (e) => {
-        dispatch(createChat({ text, latitude, longitude}))
+        dispatch(createChat({ text, latitude, longitude, group }))
         e.preventDefault()
         setText('')
     }

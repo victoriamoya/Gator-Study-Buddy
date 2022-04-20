@@ -1,11 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const Group = require('../models/groupModel')
-const User = require('../models/userModel')
-const mongoose = require("mongoose");
 
-// @desc    Get groups
-// @route   GET /api/groups
-// @access  Private
 const getGroups = asyncHandler(async (req, res) => {
   const radius = 5 // desired radius in miles
   const nearbyGroups = await Group.find({"lastLocation": // groups in specified radius
@@ -17,9 +12,6 @@ const getGroups = asyncHandler(async (req, res) => {
   res.status(200).json(nearbyGroups)
 })
 
-// @desc    Set group
-// @route   POST /api/groups
-// @access  Private
 const setGroup = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400)
@@ -42,9 +34,6 @@ const setGroup = asyncHandler(async (req, res) => {
   res.status(200).json(group)
 })
 
-// @desc    Update group
-// @route   PUT /api/groups/:id
-// @access  Private
 const updateGroup = asyncHandler(async (req, res) => {
   const group = await Group.findById(req.params.id)
 
@@ -70,9 +59,6 @@ const updateGroup = asyncHandler(async (req, res) => {
   res.status(200).json(updatedGroup)
 })
 
-// @desc    Delete group
-// @route   DELETE /api/groups/:id
-// @access  Private
 const deleteGroup = asyncHandler(async (req, res) => {
   const group = await Group.findById(req.params.id)
 
@@ -87,7 +73,7 @@ const deleteGroup = asyncHandler(async (req, res) => {
     throw new Error('User not found')
   }
 
-  // Make sure the logged in user matches the group user
+  // Check user is authorized to delete group
   if (group.user.toString() !== req.user.id) {
     res.status(401)
     throw new Error('User not authorized')

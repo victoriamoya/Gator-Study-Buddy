@@ -2,10 +2,8 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
+const Group = require("../models/groupModel");
 
-// @desc    Register new user
-// @route   POST /api/users
-// @access  Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, coordinates } = req.body
 
@@ -47,9 +45,13 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 })
 
-// @desc    Authenticate a user
-// @route   POST /api/users/login
-// @access  Public
+// Generate user JSON Web Token
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: '3d',
+  })
+}
+
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
 
@@ -69,22 +71,22 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 })
 
-// @desc    Get user data
-// @route   GET /api/users/me
-// @access  Private
-const getMe = asyncHandler(async (req, res) => {
-  res.status(200).json(req.user)
-})
+const updateUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id)
 
-// Generate user JSON Web Token
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: '3d',
+  if (!user) {
+    res.status(400)
+    throw new Error('User not found')
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+    groupId: req.body.groupId
   })
-}
+
+  res.status(200).json(updatedUser)
+})
 
 module.exports = {
   registerUser,
   loginUser,
-  getMe,
 }
